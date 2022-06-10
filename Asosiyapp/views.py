@@ -34,7 +34,7 @@ class ProView(View):
     def get(self, request):
         o = Ombor.objects.get(user=request.user)
         m = Maxsulot.objects.filter(ombor=o)
-        return render(request, "products.html",{"mahsulotlar": m})
+        return render(request, "products.html",{"mahsulot": m})
 
     def post(self,request):
         o = Ombor.objects.get(user=request.user)

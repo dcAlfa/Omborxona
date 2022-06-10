@@ -1,0 +1,4 @@
+venv/
+static/
+settings.py
+db.sqlite3

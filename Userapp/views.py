@@ -5,13 +5,15 @@ from django.views import View
 
 class LoginView(View):
     def get(self,request):
+        return render(request, "home.html")
+    def post(self,request):
         log = request.POST.get("l")
         par = request.POST.get("p")
         userlar = authenticate(request, username=log, password=par)
         if userlar is None:
             return redirect("home")
-        login(userlar)
-        return render(request, "home.html")
+        login(request, userlar)
+        return redirect("bolim")
 
 
 

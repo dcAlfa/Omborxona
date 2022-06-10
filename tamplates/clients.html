@@ -141,7 +141,7 @@
                     <tbody>
                     {% for client in clientlar%}
                         <tr>
-                            <th scope="row">1.</th>
+                            <th scope="row">{{forloop.counter}}</th>
                             <td>{{client.ism}}</td>
                             <td>{{client.dokon}}</td>
                             <td>{{client.tel}}</td>

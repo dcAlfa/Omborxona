@@ -143,15 +143,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                    {% for maxsulot in maxsulotlar %}
+                    {% for m in mahsulot %}
                         <tr>
-                            <th scope="row">1.</th>
-                            <td>{{maxsulot.nom}}</td>
-                            <td>{{maxsulot.brend}}</td>
-                            <td>{{maxsulot.kelgan_narx}}</td>
-                            <td>{{maxsulot.sotuvdagi_narx}}</td>
-                            <td>{{maxsulot.miqdor}}</td>
+
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{m.nom}}</td>
+                            <td>{{m.brend}}</td>
+                            <td>{{m.kelgan_narx}}</td>
+                            <td>{{m.sotuvdagi_narx}}</td>
+                            <td>{{m.miqdor}}</td>
                             <td><a href="{% url 'pro' %}"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
+
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -159,7 +161,6 @@
             </div>
         </div>
     </div>
-    
     <!-- The Modal -->
     <div class="modal" id="myModal">
       <div class="modal-dialog">
