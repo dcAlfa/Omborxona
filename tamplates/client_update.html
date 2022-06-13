@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% loat static %}
+{% load static %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
   <!-- IonIcons -->
   <link rel="stylesheet" href="{% static 'code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'%} ">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %]">
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <link rel="stylesheet" href="{% static 'maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'%} ">
   <script src="{% static 'ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'%}"></script>
   <script src="{% static 'cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'%} "></script>
@@ -56,23 +56,20 @@
           <!-- Modal Header -->
 
           <!-- Modal body -->
-          <form action="#" id="edit-product-form" >
+          <form action="/asosiy/client/{{client.id}}/" id="edit-product-form" method="post" >{% csrf_token %}
               <label for="edit-product-name">FIO:</label>
-              <input type="text" name="client_name" value="{{client.name}}" placeholder="Mijoz to'liq ismi..." id="edit-product-name" class="form-control" required>
+              <input type="text" name="i" value="{{client.ism}}" placeholder="Mijoz to'liq ismi..." id="edit-product-name" class="form-control" required>
                 <br>
-              <label for="edit-product-name">Do'kon nomi:</label>
-              <input type="text" name="client_shop" value="{{client.shop_name}}" placeholder="Do'kon nomi..." id="edit-product-brend" class="form-control" required>
+              <label for="edit-product-name">Klient qarzi:</label>
+              <input type="text" name="q" value="{{client.qarz}}" placeholder="Do'kon qancha qarzi bor..." id="edit-product-brend" class="form-control" required>
               <br>
               <label for="edit-product-name">Telefon raqami:</label>
-              <input type="text" name="client_phone" value="{{client.phone}}" placeholder="Telefon raqami..." id="edit-product-price" class="form-control" required>
-              <br>
-              <label for="edit-product-name">Manzili:</label>
-              <input type="text" name="client_address" value="{{client.address}}" placeholder="Mijoz manzili..." id="edit-product-amount" class="form-control" required>
+              <input type="text" name="t" value="{{client.tel}}" placeholder="Telefon raqami..." id="edit-product-price" class="form-control" required>
               <br>
 
           <!-- Modal footer -->
             <button type="submit" class="btn btn-success">Yangilash</button>
-              <a href="/clients/"><button type="button" class="btn btn-danger" data-dismiss="modal">Yopish</button></a>
+              <a href="/asosiy/client/"><button type="button" class="btn btn-danger" data-dismiss="modal">Yopish</button></a>
 
       </form>
 

@@ -52,10 +52,22 @@ class ProView(View):
 
 
 class Pro_UpView(View):
-    def get(self, request):
+    def get(self, request,):
+        # A = Maxsulot.objects.get(id=pk){"product":A}
         return render(request, "product_update.html")
 
 
 class Client_UpView(View):
-    def get(self, request):
-        return render(request, "client_update.html")
+    def get(self, request, pk):
+        A = Client.objects.get(id=pk)
+        return render(request, "client_update.html", {"client":A})
+
+    def post(self, request,pk):
+
+        Client.objects.filter(id=pk).update(
+            ism = request.POST.get("i"),
+            tel = request.POST.get("t"),
+            qarz = request.POST.get("q"),
+            ombor = Ombor.objects.get(user=request.user)
+        )
+        return redirect("client")
